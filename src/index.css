@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #F8FAFD;
+   width: 100vw;
+  height: 100vh;
+}
+.compose-btn {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #C2E7FF;
+  color: #071c32;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0 1px 0 rgba(11,37,64,0.06), 0 4px 10px rgba(11,37,64,0.08);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.compose-btn .compose-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(11,37,64,0.06);
+
+}
+
+.compose-btn:hover {
+  background: #a7dbff;
+  box-shadow: 2px 2px 1px rgba(22, 8, 8, 0.12);
+}
+
+.compose-btn:active {
+  background: #bfefff;
+  box-shadow: 0 3px 10px rgba(11,37,64,0.10);
+}
+
+.hide{
+  display: hidden;
+}
