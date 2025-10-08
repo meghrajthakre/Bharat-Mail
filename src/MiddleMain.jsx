@@ -1,5 +1,6 @@
 import React from 'react';
 import Categories from './Components/Categories';
+import OpenMailTemplate from './Components/OpenInbox';
 
 const MiddleMain = ({ open }) => {
   return (
@@ -21,7 +22,8 @@ const MiddleMain = ({ open }) => {
       `}
     >
       <div className="min-w-full">
-        <Categories />
+        {/* <Categories /> */}
+        <OpenMailTemplate/>
       </div>
     </div>
   );

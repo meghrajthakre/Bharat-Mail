@@ -2,6 +2,7 @@ import React from "react";
 import MainData from "../Data/MainData";
 import { useAppContext } from "../Context/AppContext"; // <- context import
 
+
 const Inbox = () => {
   const { active } = useAppContext(); // <- context se active folder le liya
 
@@ -16,7 +17,10 @@ const Inbox = () => {
     return msg.category === active;
   });
 
-
+  const HandleOpen = (i) => {
+    
+    
+  }
   return (
     <div className="w-full mx-auto rounded-xl mt-4 ">
       {
@@ -35,7 +39,8 @@ const Inbox = () => {
                       sm:items-center gap-1 sm:gap-0
                       px-3 sm:px-5 py-3 border-b border-gray-200
                       hover:bg-gray-100 cursor-pointer transition
-            "
+
+            "     onClick={() => HandleOpen(index)}
                 >
                   {/* Left Section */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 w-full sm:w-auto">
