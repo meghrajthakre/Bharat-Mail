@@ -5,53 +5,74 @@ import { useAppContext } from "../Context/AppContext"; // <- context import
 const Inbox = () => {
   const { active } = useAppContext(); // <- context se active folder le liya
 
-  const filterData = MainData.filter((msg) => msg.category === active);
+  const filterData = MainData.filter((msg) => {
+    if (active === "Inbox") return true;
+    if (active === "Starred") return msg.folder === "Starred";
+    if (active === "Snoozed") return msg.folder === "Snoozed";
+    if (active === "Sent") return msg.folder === "Sent";
+    if (active === "Drafts") return msg.folder === "Drafts";
+    if (active === "Purchase") return msg.folder === "Purchase";
+    // category filter
+    return msg.category === active;
+  });
+
 
   return (
     <div className="w-full mx-auto rounded-xl mt-4 ">
-      {filterData.map((items, index) => (
-        <div key={index}>
-          {/* Single Message */}
-          <div
-            className="
-              flex flex-col sm:flex-row justify-between items-start 
-              sm:items-center gap-1 sm:gap-0
-              px-3 sm:px-5 py-3 border-b border-gray-200
-              hover:bg-gray-100 cursor-pointer transition
+      {
+        filterData.length == 0 ?
+          (
+            <div className="text-center text-gray-500 py-10">
+              No mails in {active} folder
+            </div>
+          ) : (
+            filterData.map((items, index) => (
+              <div key={index}>
+                {/* Single Message */}
+                <div
+                  className="
+                      flex flex-col sm:flex-row justify-between items-start 
+                      sm:items-center gap-1 sm:gap-0
+                      px-3 sm:px-5 py-3 border-b border-gray-200
+                      hover:bg-gray-100 cursor-pointer transition
             "
-          >
-            {/* Left Section */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 w-full sm:w-auto">
-              
-              {/* Sender */}
-              <div className="flex items-center sm:w-[150px]">
-                <h3 className="font-semibold text-gray-800 text-sm sm:text-base truncate">
-                  {items.sender}
-                </h3>
-              </div>
+                >
+                  {/* Left Section */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 w-full sm:w-auto">
 
-              {/* Subject */}
-              <div className="sm:w-[200px] w-full truncate">
-                <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
-                  {items.subject}
-                </p>
-              </div>
+                    {/* Sender */}
+                    <div className="flex items-center sm:w-[150px]">
+                      <h3 className="font-semibold text-gray-800 text-sm sm:text-base truncate">
+                        {items.sender}
+                      </h3>
+                    </div>
 
-              {/* Message Preview */}
-              <div className="sm:w-[500px] w-full">
-                <p className="text-gray-500 text-xs sm:text-sm truncate">
-                  {items.message}
-                </p>
-              </div>
-            </div>
+                    {/* Subject */}
+                    <div className="sm:w-[200px] w-full truncate">
+                      <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
+                        {items.subject}
+                      </p>
+                    </div>
 
-            {/* Right: Time */}
-            <div className="text-gray-500 text-xs sm:text-sm sm:ml-4 flex-shrink-0">
-              {items.time}
-            </div>
-          </div>
-        </div>
-      ))}
+                    {/* Message Preview */}
+                    <div className="sm:w-[500px] w-full">
+                      <p className="text-gray-500 text-xs sm:text-sm truncate">
+                        {items.message}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right: Time */}
+                  <div className="text-gray-500 text-xs sm:text-sm sm:ml-4 flex-shrink-0">
+                    {items.time}
+                  </div>
+                </div>
+              </div>
+            ))
+          )
+      }
+
+
     </div>
   );
 };

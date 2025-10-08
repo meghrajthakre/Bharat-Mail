@@ -9,13 +9,13 @@ export const AppProvider = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   // active folder ke liye state
-  const [active, setActive] = useState("Primary");
+  const [active, setActive] = useState("Inbox");
 
   // active folder ke liye state
-  const [leftActive, setLeftActive] = useState('Inbox');
+  // const [leftActive, setLeftActive] = useState('Inbox');
 
   return (
-    <AppContext.Provider value={{ open, setOpen, active, setActive ,setLeftActive,leftActive}}>
+    <AppContext.Provider value={{ open, setOpen, active, setActive ,}}>
       {children}
     </AppContext.Provider>
   );
