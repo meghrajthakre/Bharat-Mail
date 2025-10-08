@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, SlidersHorizontal, Search, HelpCircle, Settings } from "lucide-react";
 import LeftSideBar from '../Components/LeftSideBar';
 import RightSideBar from './RightSideBar';
-
+import { useAppContext } from '../Context/AppContext';
 const TooltipIcon = ({ icon: Icon, text }) => (
   <div className="relative group flex items-center">
     <Icon className="w-4 h-4 md:w-6 md:h-6 text-gray-600 cursor-pointer hover:text-green-600" />
@@ -15,7 +15,7 @@ const TooltipIcon = ({ icon: Icon, text }) => (
 );
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const {open , setOpen} = useAppContext()
 
   return (
     <>
@@ -60,7 +60,7 @@ const Header = () => {
       </nav>
 
       {/* Left Sidebar */}
-      <LeftSideBar open={open} />
+      <LeftSideBar  />
       <RightSideBar />
     </>
   );

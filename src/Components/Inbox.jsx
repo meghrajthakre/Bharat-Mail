@@ -1,7 +1,10 @@
-import React from 'react';
-import MainData from '../Data/MainData';
+import React from "react";
+import MainData from "../Data/MainData";
+import { useAppContext } from "../Context/AppContext"; // <- context import
 
-const Inbox = ({ active }) => {
+const Inbox = () => {
+  const { active } = useAppContext(); // <- context se active folder le liya
+
   const filterData = MainData.filter((msg) => msg.category === active);
 
   return (
@@ -13,7 +16,7 @@ const Inbox = ({ active }) => {
             className="
               flex flex-col sm:flex-row justify-between items-start 
               sm:items-center gap-1 sm:gap-0
-              px-3 sm:px-5 py-3 border-b border-gray-50
+              px-3 sm:px-5 py-3 border-b border-gray-200
               hover:bg-gray-100 cursor-pointer transition
             "
           >
