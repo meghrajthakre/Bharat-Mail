@@ -2,33 +2,52 @@ import React from "react";
 
 const OpenMailTemplate = () => {
     return (
-        <div className="w-full h-screen bg-white p-6">
+        <div 
+            className="w-full h-screen p-6"
+            style={{
+                backgroundColor: 'var(--bg-color)',
+                color: 'var(--text-color)',
+                transition: 'background-color 0.3s, color 0.3s'
+            }}
+        >
             {/* Top Bar */}
             <div className="flex items-center gap-4 mb-6">
-                <button className="text-blue-500 hover:underline cursor-pointer">← Back</button>
-                <h1 className="text-2xl font-bold">Your DSA Plan</h1>
+                <button 
+                    className="cursor-pointer"
+                    style={{ color: 'var(--btn-text)' }}
+                >
+                    ← Back
+                </button>
+                <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color)' }}>
+                    Your DSA Plan
+                </h1>
             </div>
 
             {/* Mail Info */}
-            <div className="w-full border-b border-gray-200 pb-4 mb-4 flex items-center justify-between px-2 ">
-                <div className="flex flex-col ">
-                    <p className="text-sm text-gray-700">
+            <div 
+                className="w-full border-b pb-4 mb-4 flex items-center justify-between px-2"
+                style={{ borderColor: 'rgba(0,0,0,0.1)' }}
+            >
+                <div className="flex flex-col">
+                    <p className="text-sm" style={{ color: 'var(--secondary-text)' }}>
                         <strong>From:</strong> Akshay Saini
                     </p>
 
-
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm" style={{ color: 'var(--secondary-text)' }}>
                         <strong>To:</strong> you
                     </p>
                 </div>
 
-
-                <p className="text-xs text-gray-500 mt-1">10:30 AM</p>
-
+                <p className="text-xs mt-1" style={{ color: 'var(--secondary-text)' }}>
+                    10:30 AM
+                </p>
             </div>
 
             {/* Mail Body */}
-            <div className="text-gray-800 px-2 leading-relaxed whitespace-pre-wrap">
+            <div 
+                className="px-2 leading-relaxed whitespace-pre-wrap"
+                style={{ color: 'var(--text-color)' }}
+            >
                 Hey Meghraj,
 
                 Here’s your complete 90-day DSA plan.

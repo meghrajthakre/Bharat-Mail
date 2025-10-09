@@ -7,7 +7,6 @@ const MiddleMain = ({ open }) => {
     <div
       className={`
         rounded-2xl transition-all duration-300 overflow-auto no-scrollbar
-        bg-white
         // ✅ Desktop positioning (unchanged)
         sm:absolute left-[240px]
         sm:w-[calc(100%-260px)] md:w-[calc(100%-280px)] lg:w-[calc(100%-330px)]
@@ -22,8 +21,8 @@ const MiddleMain = ({ open }) => {
       `}
     >
       <div className="min-w-full">
-        {/* <Categories /> */}
-        <OpenMailTemplate/>
+        <Categories />
+        {/* <OpenMailTemplate/> */}
       </div>
     </div>
   );

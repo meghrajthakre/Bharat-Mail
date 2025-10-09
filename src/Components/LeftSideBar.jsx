@@ -2,7 +2,7 @@ import React from 'react';
 import ComposeButton from './ComposeButton';
 import { useAppContext } from '../Context/AppContext';
 import leftCategoriesData from './../Data/leftCategoriesData';
-import MainData from '../Data/MainData';
+
 
 const LeftSideBar = () => {
   const { open, setOpen, active, setActive } = useAppContext();
@@ -16,7 +16,7 @@ const LeftSideBar = () => {
   }
 
   return (
-    <div className={`fixed top-[48px] left-0 h-[90%] w-60 bg-[#F8FAFD]
+    <div className={`fixed top-[48px] left-0 h-[90%] w-60 
                     transform transition-transform duration-300
                     ${open ? 'translate-x-0' : '-translate-x-full'}
                     sm:translate-x-0 sm:block`}>
@@ -28,7 +28,7 @@ const LeftSideBar = () => {
             key={id}
             onClick={() => handleClick(name)}
             className={`flex items-center gap-3 cursor-pointer p-2 rounded-xl transition 
-              ${active === name ? "bg-[#D3E3FE] text-black font-semibold " : "hover:bg-gray-100"}
+              ${active === name ? "bg-[#D3E3FE] text-green-600  " : "InboxMessage"}
             `}
           >
             <Icon className="w-5 h-5" color={active === name ? color : "#6B7280"} />

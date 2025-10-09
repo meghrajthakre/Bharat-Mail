@@ -1,27 +1,59 @@
 @import "tailwindcss";
 
-
+/* -------------------- Light Mode (Default) -------------------- */
 body {
   font-family: 'Roboto', Arial, sans-serif;
-  background: #F8FAFD;
-   width: 100vw;
+  
+  /* Colors */
+  --bg-color: #F8FAFD;        /* Body background */
+  --text-color: #071c32;      /* Primary text */
+  --secondary-text: #454746;  /* Header / secondary text */
+  --btn-bg: #C2E7FF;          /* Compose button background */
+  --btn-text: #071c32;        /* Compose button text */
+  --btn-hover: #a7dbff;       /* Compose button hover */
+  --btn-active: #bfefff;      /* Compose button active */
+  --btn-icon-bg: rgba(11,37,64,0.06); /* Compose icon background */
+  --header-bg: #f6f8fc;       /* Header background */
+  --search-bg: #f2f2f2;       /* Search bar background */
+
+  /* Apply */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100vw;
   height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* -------------------- Dark Mode via Manual Toggle -------------------- */
+body.dark {
+  --bg-color: #111827;        /* bg-gray-900 */
+  --text-color: #F9FAFB;      /* text-gray-50 */
+  --secondary-text: #D1D5DB;  /* Header / secondary text */
+  --btn-bg: #374151;           /* bg-gray-700 */
+  --btn-text: #F9FAFB;
+  --btn-hover: #4B5563;        /* hover bg */
+  --btn-active: #6B7280;       /* active bg */
+  --btn-icon-bg: rgba(255,255,255,0.1);
+  --header-bg: #1F2937;        /* dark header */
+  --search-bg: #374151;        /* dark search bar */
+}
+
+/* -------------------- Compose Button -------------------- */
 .compose-btn {
   margin-top: 10px;
   margin-left: 10px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #C2E7FF;
-  color: #071c32;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   padding: 14px 18px;
   border-radius: 14px;
   font-weight: 500;
   font-size: 14px;
   box-shadow: 0 1px 0 rgba(11,37,64,0.06), 0 4px 10px rgba(11,37,64,0.08);
   cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, color 120ms ease;
 }
 
 .compose-btn .compose-icon {
@@ -31,20 +63,85 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(11,37,64,0.06);
-
+  background: var(--btn-icon-bg);
 }
 
 .compose-btn:hover {
-  background: #a7dbff;
+  background: var(--btn-hover);
   box-shadow: 2px 2px 1px rgba(22, 8, 8, 0.12);
 }
 
 .compose-btn:active {
-  background: #bfefff;
+  background: var(--btn-active);
   box-shadow: 0 3px 10px rgba(11,37,64,0.10);
 }
 
-.hide{
-  display: hidden;
+/* -------------------- Header -------------------- */
+nav {
+  background-color: var(--header-bg) !important;
+  color: var(--secondary-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Inbox Messages */
+.InboxMessage, .inbox div { /* Apply class if needed */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Optional: smooth body transition */
+body, .compose-btn, nav, input {
+  transition: background-color 0.3s, color 0.3s;
+}
+/* -------------------- Inbox Message Hover -------------------- */
+
+/* Light Mode Hover */
+.InboxMessage:hover, 
+.inbox div:hover {
+  background-color: #f1f5f9; /* Tailwind: gray-100 */
+  transition: background-color 0.2s ease;
+}
+
+/* Dark Mode Hover */
+body.dark .InboxMessage:hover, 
+body.dark .inbox div:hover {
+  background-color: #374151; /* Tailwind: gray-700 */
+  transition: background-color 0.2s ease;
+}
+/* -------------------- Scrollbar Styling -------------------- */
+
+/* Light Mode Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9; /* Light gray */
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* Gray-300 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* Gray-400 */
+}
+
+/* Dark Mode Scrollbar */
+body.dark ::-webkit-scrollbar-track {
+  background: #1f2937; /* Dark gray track */
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563; /* Gray-600 */
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280; /* Gray-500 */
 }

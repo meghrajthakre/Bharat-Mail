@@ -1,5 +1,6 @@
 import Header from './Components/Header';
 import MiddleMain from './MiddleMain';
+import React from 'react'
 
 const App = () => {
 

@@ -18,11 +18,11 @@ const Inbox = () => {
   });
 
   const HandleOpen = (i) => {
-    
-    
+
+
   }
   return (
-    <div className="w-full mx-auto rounded-xl mt-4 ">
+    <div className="w-full mx-auto rounded-xl mt-2 ">
       {
         filterData.length == 0 ?
           (
@@ -37,9 +37,10 @@ const Inbox = () => {
                   className="
                       flex flex-col sm:flex-row justify-between items-start 
                       sm:items-center gap-1 sm:gap-0
-                      px-3 sm:px-5 py-3 border-b border-gray-200
-                      hover:bg-gray-100 cursor-pointer transition
-
+                      px-3 sm:px-5 py-3
+                      rounded
+                      InboxMessage
+                      cursor-pointer transition
             "     onClick={() => HandleOpen(index)}
                 >
                   {/* Left Section */}
@@ -47,14 +48,14 @@ const Inbox = () => {
 
                     {/* Sender */}
                     <div className="flex items-center sm:w-[150px]">
-                      <h3 className="font-semibold text-gray-800 text-sm sm:text-base truncate">
+                      <h3 className="font-semibold text-sm sm:text-base truncate">
                         {items.sender}
                       </h3>
                     </div>
 
                     {/* Subject */}
                     <div className="sm:w-[200px] w-full truncate">
-                      <p className="font-medium text-gray-800 text-sm sm:text-base truncate">
+                      <p className="text-gray-500 font-medium  text-sm sm:text-base truncate">
                         {items.subject}
                       </p>
                     </div>
