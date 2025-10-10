@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import MainData from "../Data/MainData";
 
 // 1️⃣ Context banao
 const AppContext = createContext();
@@ -11,11 +12,13 @@ export const AppProvider = ({ children }) => {
   // active folder ke liye state
   const [active, setActive] = useState("Inbox");
 
-  // active folder ke liye state
-  // const [leftActive, setLeftActive] = useState('Inbox');
+  const [selectMailId , setSelectMailId] = useState(null)
+  
+  
+  const mail = MainData.find((mail) => mail.id == selectMailId);
 
   return (
-    <AppContext.Provider value={{ open, setOpen, active, setActive ,}}>
+    <AppContext.Provider value={{ open, setOpen, active, setActive , setSelectMailId,mail}}>
       {children}
     </AppContext.Provider>
   );

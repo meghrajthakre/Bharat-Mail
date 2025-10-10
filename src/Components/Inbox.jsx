@@ -1,10 +1,15 @@
 import React from "react";
 import MainData from "../Data/MainData";
 import { useAppContext } from "../Context/AppContext"; // <- context import
-
+import OpenInbox from '../Components/OpenInbox'
 
 const Inbox = () => {
-  const { active } = useAppContext(); // <- context se active folder le liya
+  const { active ,mail, setSelectMailId} = useAppContext(); // <- context se active folder le liya
+  
+  
+  if(mail){
+    return <OpenInbox/>
+  }
 
   const filterData = MainData.filter((msg) => {
     if (active === "Inbox") return true;
@@ -17,10 +22,7 @@ const Inbox = () => {
     return msg.category === active;
   });
 
-  const HandleOpen = (i) => {
 
-
-  }
   return (
     <div className="w-full mx-auto rounded-xl mt-2 ">
       {
@@ -41,7 +43,7 @@ const Inbox = () => {
                       rounded
                       InboxMessage
                       cursor-pointer transition
-            "     onClick={() => HandleOpen(index)}
+            "     onClick={() => setSelectMailId(items.id)}
                 >
                   {/* Left Section */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 w-full sm:w-auto">
