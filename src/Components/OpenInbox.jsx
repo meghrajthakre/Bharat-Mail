@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
 import { useAppContext } from "../Context/AppContext"; // <- context import
+import React, { useEffect, useRef } from "react";
 
 const OpenMailTemplate = () => {
-    const {mail, setSelectMailId} = useAppContext()
+    const topRef = useRef()
+    const { mail, setSelectMailId } = useAppContext()
 
+    useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ top: 0,  behavior: "smooth" });
+    }
+  }, []);
+
+
+    if (!mail) return null; // safety check
     return (
-        <div 
+        <div ref={topRef}
             className="w-full h-screen p-6"
             style={{
                 backgroundColor: 'var(--bg-color)',
@@ -15,23 +24,23 @@ const OpenMailTemplate = () => {
         >
             {/* Top Bar */}
             <div className="flex items-center gap-4 mb-6">
-                <button 
+                <button
                     onClick={() => setSelectMailId(null)}
                     className="cursor-pointer text-blue-600"
-                    
+
                 >
-                     ← Back 
+                    ← Back
                 </button>
-               
+
             </div>
 
             {/* Mail Info */}
-             <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color)' }}>
-                    {mail.subject}
-                </h1>
+            <h1 className="text-2xl font-bold" style={{ color: 'var(--text-color)' }}>
+                {mail.subject}
+            </h1>
 
 
-            <div 
+            <div
                 className="w-full border-b mt-2 pb-4 mb-4 flex items-center justify-between px-2"
                 style={{ borderColor: 'rgba(0,0,0,0.1)' }}
             >
@@ -51,11 +60,11 @@ const OpenMailTemplate = () => {
             </div>
 
             {/* Mail Body */}
-            <div 
+            <div
                 className="px-2 leading-relaxed whitespace-pre-wrap "
                 style={{ color: 'var(--text-color)' }}
             >
-               {mail.message}
+                {mail.message}
             </div>
         </div>
     );

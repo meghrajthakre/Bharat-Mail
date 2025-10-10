@@ -1,14 +1,13 @@
-import React from "react";
 import MainData from "../Data/MainData";
 import { useAppContext } from "../Context/AppContext"; // <- context import
 import OpenInbox from '../Components/OpenInbox'
 
 const Inbox = () => {
-  const { active ,mail, setSelectMailId} = useAppContext(); // <- context se active folder le liya
-  
-  
-  if(mail){
-    return <OpenInbox/>
+  const { active, mail, setSelectMailId } = useAppContext(); // <- context se active folder le liya
+
+
+  if (mail) {
+    return <OpenInbox />
   }
 
   const filterData = MainData.filter((msg) => {

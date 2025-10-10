@@ -16,8 +16,8 @@ const LeftSideBar = () => {
   }
 
   return (
-    <div className={`fixed top-[48px] left-0 h-[90%] w-60 
-                    transform transition-transform duration-300
+    <div className={`fixed top-[52px] left-0 h-[90%] w-60 backdrop-blur-lg
+                    transform transition-transform duration-300 md:top-[64px]
                     ${open ? 'translate-x-0' : '-translate-x-full'}
                     sm:translate-x-0 sm:block`}>
       <ComposeButton />
