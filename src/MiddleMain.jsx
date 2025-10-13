@@ -1,6 +1,6 @@
 import React from 'react';
 import Categories from './Components/Categories';
-import OpenMailTemplate from './Components/OpenInbox';
+
 
 const MiddleMain = ({ open }) => {
   return (

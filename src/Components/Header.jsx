@@ -45,7 +45,7 @@ const Header = () => {
           </div>
 
           <div className='flex items-center'>
-            <img className='w-8 md:w-12' src='./src/assets/icons/logo.png' alt="Bharat Mail Logo" />
+            <img className='hidden w-8 md:w-12' src='./src/assets/icons/logo.png' alt="Bharat Mail Logo" />
             <h1 className='hidden sm:block text-lg md:text-2xl ml-1' style={{ color: 'var(--secondary-text)' }}>Bmail</h1>
           </div>
         </div>
@@ -84,7 +84,7 @@ const Header = () => {
             <img
               src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png"
               alt="Profile"
-              className="hidden sm:flex md:flex  w-6 h-6 md:w-10 md:h-10 rounded-full cursor-pointer"
+              className=" sm:flex md:flex  w-5 h-5 md:w-10 md:h-10 rounded-full cursor-pointer"
             />
             <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2
                              bg-gray-800 text-white text-xs rounded px-2 py-1 shadow-md

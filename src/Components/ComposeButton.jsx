@@ -1,4 +1,5 @@
 import React from 'react';
+import ComposePage from './ComposePage';
 
 const ComposeButton = () => {
     return (
@@ -23,6 +24,7 @@ const ComposeButton = () => {
                 {/* Text */}
                 <span className='hidden sm:inline'>compose</span>
             </button>
+
         </div>
 
     )
