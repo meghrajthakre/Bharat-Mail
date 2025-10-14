@@ -3,6 +3,7 @@ import { Menu, SlidersHorizontal, Search, HelpCircle, Settings, Sun, Moon } from
 import LeftSideBar from '../Components/LeftSideBar';
 import RightSideBar from './RightSideBar';
 import { useAppContext } from '../Context/AppContext';
+import SearchBox from './SearchBox';
 
 const TooltipIcon = ({ icon: Icon, text }) => (
   <div className="relative group flex items-center">
@@ -51,19 +52,7 @@ const Header = () => {
         </div>
 
         {/* Middle Section: Search Box */}
-        <div
-          className='flex items-center flex-1 max-w-[600px] mx-2 sm:mx-4 rounded-full px-2 sm:px-3 py-1 sm:py-2 transition-colors duration-300'
-          style={{ backgroundColor: 'var(--search-bg)', color: 'text-black' }}
-        >
-          <TooltipIcon icon={Search} text="Search" />
-          <input
-            type="text"
-            placeholder='Search Mail'
-            className='flex-1 w-auto outline-none px-2 text-sm sm:text-base'
-            style={{ color: 'var(--text-color)', backgroundColor: 'transparent' }}
-          />
-          <TooltipIcon icon={SlidersHorizontal} text="Filter" />
-        </div>
+      <SearchBox/>
 
         {/* Right Section */}
         <div className='flex items-center gap-2 sm:gap-4'>
