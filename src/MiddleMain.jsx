@@ -2,6 +2,7 @@ import React from 'react';
 import Categories from './Components/Categories';
 
 
+
 const MiddleMain = ({ open }) => {
   return (
     <div
@@ -24,6 +25,8 @@ const MiddleMain = ({ open }) => {
         <Categories />
         {/* <OpenMailTemplate/> */}
       </div>
+
+     
     </div>
   );
 };

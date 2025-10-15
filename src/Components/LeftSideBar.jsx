@@ -16,11 +16,10 @@ const LeftSideBar = () => {
   }
 
   return (
-    <div className={`fixed top-[52px] left-0 h-[90%] w-60 backdrop-blur-lg
+    <div className={`fixed top-[60px] left-0 h-[90%] w-60 backdrop-blur-lg
                     transform transition-transform duration-300 md:top-[64px]
                     ${open ? 'translate-x-0' : '-translate-x-full'}
                     sm:translate-x-0 sm:block`}>
-      <ComposeButton />
 
       <div className="p-4 py-6 flex gap-2 flex-col space-y-1">
         {leftCategoriesData.map(({ id, name, icon: Icon, color, bg }) => (

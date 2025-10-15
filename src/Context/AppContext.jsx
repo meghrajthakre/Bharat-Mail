@@ -20,8 +20,14 @@ export const AppProvider = ({ children }) => {
   const mail = MainData.find((mail) => mail.id == selectMailId);
   
 
+  // compose btn 
+    const [openCompose ,  setOpenCompose ] = useState(false)
+
+
   return (
-    <AppContext.Provider value={{ open, setOpen, active, setActive, setSelectMailId, mail }}>
+    <AppContext.Provider value={{ open, setOpen, active, setActive, setSelectMailId, mail,
+      setOpenCompose , openCompose
+     }}>
       {children}
     </AppContext.Provider>
   );
