@@ -18,7 +18,6 @@ export const AppProvider = ({ children }) => {
 
   const [selectMailId, setSelectMailId] = useState(null)
   const mail = MainData.find((mail) => mail.id == selectMailId);
-  console.log(mail);
   
 
   return (

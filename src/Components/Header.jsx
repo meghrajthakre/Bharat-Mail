@@ -75,11 +75,7 @@ const Header = () => {
               alt="Profile"
               className=" sm:flex md:flex  w-5 h-5 md:w-10 md:h-10 rounded-full cursor-pointer"
             />
-            <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2
-                             bg-gray-800 text-white text-xs rounded px-2 py-1 shadow-md
-                             opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
-              Profile
-            </span>
+           
           </div>
         </div>
       </nav>

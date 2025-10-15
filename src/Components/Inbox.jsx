@@ -23,7 +23,7 @@ const Inbox = () => {
 
 
   return (
-    <div className="w-full mx-auto rounded-xl mt-2 ">
+    <div className="w-full mx-auto rounded-xl mt-5">
       {
         filterData.length == 0 ?
           (
@@ -33,8 +33,10 @@ const Inbox = () => {
           ) : (
             filterData.map((items, index) => (
               <div key={index}>
+                
                 {/* Single Message */}
                 <div
+
                   className="
                       flex flex-col sm:flex-row justify-between items-start 
                       sm:items-center gap-1 sm:gap-0
@@ -42,6 +44,7 @@ const Inbox = () => {
                       rounded
                       InboxMessage
                       cursor-pointer transition
+                      overflow-auto
             "     onClick={() => setSelectMailId(items.id)}
                 >
                   {/* Left Section */}
@@ -63,7 +66,7 @@ const Inbox = () => {
 
                     {/* Message Preview */}
                     <div className="sm:w-[500px] w-full">
-                      <p className="text-gray-500 text-xs sm:text-sm truncate">
+                      <p className="text-gray-500 text-xs sm:text-sm truncate ">
                         {items.message}
                       </p>
                     </div>

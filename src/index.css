@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
+*{
+}
 /* -------------------- Light Mode (Default) -------------------- */
 body {
+
   font-family: 'Roboto', Arial, sans-serif;
   
   /* Colors */
