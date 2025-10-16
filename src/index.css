@@ -148,3 +148,14 @@ body.dark ::-webkit-scrollbar-thumb {
 body.dark ::-webkit-scrollbar-thumb:hover {
   background: #6b7280; /* Gray-500 */
 }
+
+/* 🎨 Custom color for date input icon */
+.custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(48%) sepia(70%) saturate(450%) hue-rotate(90deg) brightness(95%) contrast(90%);
+  cursor: pointer;
+}
+
+/* For dark mode (optional) */
+body.dark .custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(80%) sepia(20%) saturate(300%) hue-rotate(120deg);
+}

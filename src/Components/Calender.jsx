@@ -1,27 +1,74 @@
-import React from "react";
-import { Icon } from "@iconify/react";
+import React, { useState } from "react";
+import CalenderIcon from "./CalenderIcon";
 
-const Calender = () => {
+const Calendar = () => {
+  const [openCal, setOpenCal] = useState(false);
+  const [date, setDate] = useState(() => new Date().toISOString().split("T")[0]);
+ 
+
   return (
-    <div className="">
-      <div className=" relative group cursor-pointer p-2 hover:bg-gray-100 rounded-full">
-      <Icon icon="logos:google-calendar" width="25" height="25" />
+    <div
+      className={`relative ${openCal ? "border-l-4 border-blue-500" : "text-gray-600"
+        }`}
+    >
+      {/* Calendar Icon */}
+      <CalenderIcon setOpenCal={setOpenCal} openCal={openCal}/>
 
-      {/* Tooltip */}
-      <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2
-                       hidden group-hover:block
-                       bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap z-10">
-        Calendar
-      </span>
+      {/* Calendar Popup */}
+      {openCal && (
+        <div
+          className="absolute top-0 right-13 w-72 sm:w-80 rounded-xl shadow-lg p-4 border z-[101] transition-all duration-300"
+          style={{
+            backgroundColor: "var(--header-bg)",
+            borderColor: "rgba(0,0,0,0.1)",
+            color: "var(--text-color)",
+          }}
+        >
+          <h2 className="text-sm mb-2 uppercase tracking-[5px]">
+            Calendar
+          </h2>
 
+         
+            <>
+              <div className="flex flex-col ">
 
-      <div className="w-80 h-80 bg-red-500 absolute right-20 z-101 top-0">
-        <input type="date" />
-      </div>
+                <input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  onClick={(e) => e.target.showPicker()}
+                  className=" text-green-400  cursor-pointer w-[130px] p-2 border rounded-md bg-transparent focus:outline-none focus:ring-1 focus:ring-green-400 custom-date hover:border-green-400 hover:shadow-md "
+                  style={{
+                    color: "#4ade80",
+                    borderColor: "rgba(0,0,0,0.1)",
+                  }}
+                />
 
-    </div>
+                <button
+                  className="mt-3 cursor-pointer  px-4 py-1.5 rounded-md text-sm font-medium transition  "
+                  style={{
+                    backgroundColor: "var(--btn-bg)",
+                    color: "var(--btn-text)",
+                  }}
+                  onClick={() => setOpenCal(false)}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor = "var(--btn-hover)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor = "var(--btn-bg)")
+                  }
+                >
+                  Close
+                </button>
+
+                  
+
+              </div>
+            </>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Calender;
+export default Calendar;
