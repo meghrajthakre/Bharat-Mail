@@ -23,7 +23,7 @@ const Inbox = () => {
 
 
   return (
-    <div className="w-full mx-auto rounded-xl mt-5">
+    <div className=" mx-auto rounded-xl mt-5">
       {
         filterData.length == 0 ?
           (
@@ -43,8 +43,8 @@ const Inbox = () => {
                       px-3 sm:px-5 py-3
                       rounded
                       InboxMessage
+                      
                       cursor-pointer transition
-                      overflow-auto
             "     onClick={() => setSelectMailId(items.id)}
                 >
                   {/* Left Section */}

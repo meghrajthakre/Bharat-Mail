@@ -4,13 +4,9 @@ import { useAppContext } from "../Context/AppContext";
 const ComposePage = () => {
   const { setOpenCompose, openCompose } = useAppContext();
 
-  const handleClose = () => {
-    setOpenCompose(false);
-  };
-
   return (
     <>
-     
+
 
       {/* Compose Page */}
       {openCompose && (
@@ -29,7 +25,7 @@ const ComposePage = () => {
             <h2 className="font-semibold text-lg">New Message</h2>
             <button
               className="cursor-pointer hover:opacity-80 transition text-[var(--secondary-text)]"
-              onClick={handleClose}
+              onClick={() => setOpenCompose(false)}
               title="Close"
             >
               ✖

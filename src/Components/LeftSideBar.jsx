@@ -1,5 +1,3 @@
-import React from 'react';
-import ComposeButton from './ComposeButton';
 import { useAppContext } from '../Context/AppContext';
 import leftCategoriesData from './../Data/leftCategoriesData';
 

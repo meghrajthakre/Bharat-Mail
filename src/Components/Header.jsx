@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className="z-50 flex items-center justify-between px-3 py-3 md:py-2 sm:px-3 md:px-5 transition-colors duration-300"
+        className="z-50 flex items-center justify-between px-3 bg-red-500 py-3 md:py-2 sm:px-3 md:px-5 transition-colors duration-300"
         style={{ backgroundColor: 'var(--header-bg)', color: 'var(--secondary-text)' }}
       >
         {/* Left Section: Menu + Logo */}
@@ -64,7 +64,7 @@ const Header = () => {
             {dark ? <Sun size={20} /> : <Moon size={20} />}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <TooltipIcon icon={HelpCircle} text="Help" />
           </div>
           <TooltipIcon icon={Settings} text="Settings" />

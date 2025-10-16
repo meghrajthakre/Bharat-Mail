@@ -12,7 +12,6 @@ export const AppProvider = ({ children }) => {
   const [active, setActive] = useState("Inbox");
 
   useEffect(() => {
-    
     setSelectMailId(null)
   }, [active])
 

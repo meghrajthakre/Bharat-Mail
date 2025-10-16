@@ -12,7 +12,7 @@ const Categories = () => {
       <div
         className="
           flex items-center justify-between 
-          sm:justify-start sm:gap-2 md:gap-6 lg:gap-10
+          sm:justify-start sm:gap-1 md:gap-6 lg:gap-10
           px-2 sm:px-4 md:px-6 mt-1.5 md:mt-0
         "
       >

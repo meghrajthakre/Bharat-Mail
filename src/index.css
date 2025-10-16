@@ -83,7 +83,6 @@ body.dark {
 nav {
   background-color: var(--header-bg) !important;
   color: var(--secondary-text);
-  transition: background-color 0.3s, color 0.3s;
 }
 
 

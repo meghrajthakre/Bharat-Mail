@@ -61,28 +61,35 @@ const SearchBox = () => {
 
 
   return (
-    <div className="relative w-full max-w-[600px] mx-2 sm:mx-4">
+    <div className="relative w-[200px] sm:w-[400px]  md:w-[600px] mx-2 sm:mx-4">
       {/* Search Input */}
-      <div
-        className="flex items-center flex-1 rounded-full px-3 py-2 transition-colors duration-300  border focus-within:ring-1 focus-within:ring-green-400"
-        style={{
-          backgroundColor: 'var(--search-bg)',
-          borderColor: 'rgba(0,0,0,0.05)',
-        }}
-      >
-        <TooltipIcon icon={Search} text="Search" />
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          type="text"
-          onFocus={() => input && setshowResults(true)}
-          onBlur={() => setTimeout(() => setshowResults(false), 200)} 
-          placeholder="Search mail..."
-          className="flex-1 outline-none px-2 text-sm sm:text-base bg-transparent placeholder-gray-500"
-          style={{ color: 'var(--text-color)' }}
-        />
-        <TooltipIcon icon={SlidersHorizontal} text="Filter" />
-      </div>
+     <div
+  className="flex items-center flex-1 rounded-full px-3 py-2 transition-colors duration-300 border focus-within:ring-1 focus-within:ring-green-400 flex-nowrap min-w-0"
+  style={{
+    backgroundColor: 'var(--search-bg)',
+    borderColor: 'rgba(0,0,0,0.05)',
+  }}
+>
+  {/* Left Search Icon */}
+  <TooltipIcon icon={Search} text="Search" />
+
+  {/* Input Field */}
+  <input
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    type="text"
+    onFocus={() => input && setshowResults(true)}
+    onBlur={() => setTimeout(() => setshowResults(false), 200)}
+    placeholder="Search mail..."
+    className="flex-1 min-w-0 outline-none px-2 text-sm sm:text-base bg-transparent placeholder-gray-500"
+    style={{ color: 'var(--text-color)' }}
+  />
+
+  {/* Right Filter Icon */}
+  <TooltipIcon icon={SlidersHorizontal} text="Filter" />
+</div>
+
+
 
       {/* Search Results Dropdown */}
       {

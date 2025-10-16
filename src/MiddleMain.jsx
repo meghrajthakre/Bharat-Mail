@@ -9,6 +9,7 @@ const MiddleMain = ({ open }) => {
       className={`
         rounded-2xl transition-all duration-300 overflow-auto no-scrollbar
         // ✅ Desktop positioning (unchanged)
+        
         sm:absolute left-[240px]
         sm:w-[calc(100%-260px)] md:w-[calc(100%-280px)] lg:w-[calc(100%-330px)]
         sm:h-[calc(100%-75px)] md:h-[calc(100%-100px)]
