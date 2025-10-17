@@ -34,7 +34,7 @@ const SearchBox = () => {
     const query = input.trim().toLowerCase();
 
     if (!query) {
-      setResults([]);
+      setResultData([]);
       setshowResults(false);
       return;
     }
