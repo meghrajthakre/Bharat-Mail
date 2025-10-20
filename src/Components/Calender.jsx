@@ -44,7 +44,7 @@ const Calendar = () => {
       {/* Calendar Popup */}
       {openCal && (
         <div
-          className="absolute top-0 right-13 w-72 sm:w-80 rounded-xl shadow-lg p-4 border z-[101] transition-all duration-300"
+          className="absolute top-0 right-14 w-72 sm:w-80 rounded-xl shadow-lg p-4 border z-[101] transition-all duration-300"
           style={{
             backgroundColor: "var(--header-bg)",
             borderColor: "rgba(0,0,0,0.1)",
