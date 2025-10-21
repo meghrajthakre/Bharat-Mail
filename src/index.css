@@ -1,25 +1,24 @@
 @import "tailwindcss";
 
-*{
-}
+/* -------------------- Global Reset -------------------- */
+
+
 /* -------------------- Light Mode (Default) -------------------- */
 body {
-
   font-family: 'Roboto', Arial, sans-serif;
-  
+
   /* Colors */
   --bg-color: #F8FAFD;        /* Body background */
   --text-color: #071c32;      /* Primary text */
   --secondary-text: #454746;  /* Header / secondary text */
-  --btn-bg: #C2E7FF;          /* Compose button background */
-  --btn-text: #071c32;        /* Compose button text */
-  --btn-hover: #a7dbff;       /* Compose button hover */
-  --btn-active: #bfefff;      /* Compose button active */
-  --btn-icon-bg: rgba(11,37,64,0.06); /* Compose icon background */
-  --header-bg: #f6f8fc;       /* Header background */
-  --search-bg: #f2f2f2;       /* Search bar background */
+  --btn-bg: #C2E7FF;          /* Button background */
+  --btn-text: #071c32;        /* Button text */
+  --btn-hover: #a7dbff;       /* Hover background */
+  --btn-active: #bfefff;      /* Active background */
+  --btn-icon-bg: rgba(11,37,64,0.06); /* Icon background */
+  --header-bg: #f6f8fc;       /* Header */
+  --search-bg: #f2f2f2;       /* Search bar */
 
-  /* Apply */
   background-color: var(--bg-color);
   color: var(--text-color);
   width: 100vw;
@@ -27,18 +26,21 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* -------------------- Dark Mode via Manual Toggle -------------------- */
+/* -------------------- DARK MODE (Black Gmail Style) -------------------- */
 body.dark {
-  --bg-color: #111827;        /* bg-gray-900 */
-  --text-color: #F9FAFB;      /* text-gray-50 */
-  --secondary-text: #D1D5DB;  /* Header / secondary text */
-  --btn-bg: #374151;           /* bg-gray-700 */
-  --btn-text: #F9FAFB;
-  --btn-hover: #4B5563;        /* hover bg */
-  --btn-active: #6B7280;       /* active bg */
-  --btn-icon-bg: rgba(255,255,255,0.1);
-  --header-bg: #1F2937;        /* dark header */
-  --search-bg: #374151;        /* dark search bar */
+  --bg-color: #0b0b0b;        /* Deep black */
+  --text-color: #E8EAED;      /* Light white text */
+  --secondary-text: #B0B3B8;  /* Muted gray text */
+  --btn-bg: #202124;          /* Button background */
+  --btn-text: #E8EAED;        /* Button text */
+  --btn-hover: #2c2c2c;       /* Hover state */
+  --btn-active: #3c3c3c;      /* Active click */
+  --btn-icon-bg: rgba(255,255,255,0.08); /* Icon background */
+  --header-bg: #1a1a1a;       /* Header bar */
+  --search-bg: #242526;       /* Search bar / inputs */
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* -------------------- Compose Button -------------------- */
@@ -85,77 +87,77 @@ nav {
   color: var(--secondary-text);
 }
 
-
-/* Inbox Messages */
-.InboxMessage, .inbox div { /* Apply class if needed */
+/* -------------------- Inbox Messages -------------------- */
+.InboxMessage, .inbox div {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Optional: smooth body transition */
-body, .compose-btn, nav, input {
-  transition: background-color 0.3s, color 0.3s;
-}
-/* -------------------- Inbox Message Hover -------------------- */
+/* -------------------- Hover States -------------------- */
 
 /* Light Mode Hover */
-.InboxMessage:hover, 
+.InboxMessage:hover,
 .inbox div:hover {
-  background-color: #f1f5f9; /* Tailwind: gray-100 */
+  background-color: #f1f5f9; /* Tailwind gray-100 */
   transition: background-color 0.2s ease;
 }
 
 /* Dark Mode Hover */
-body.dark .InboxMessage:hover, 
+body.dark .InboxMessage:hover,
 body.dark .inbox div:hover {
-  background-color: #374151; /* Tailwind: gray-700 */
+  background-color: #2a2a2a; /* Slightly lighter black */
   transition: background-color 0.2s ease;
 }
+
 /* -------------------- Scrollbar Styling -------------------- */
 
 /* Light Mode Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-  display: none;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9; /* Light gray */
+  background: #f1f5f9;
   border-radius: 10px;
   margin-top: 50px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1; /* Gray-300 */
+  background: #cbd5e1;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8; /* Gray-400 */
+  background: #94a3b8;
 }
 
 /* Dark Mode Scrollbar */
 body.dark ::-webkit-scrollbar-track {
-  background: #1f2937; /* Dark gray track */
+  background: #0f0f0f;
 }
 
 body.dark ::-webkit-scrollbar-thumb {
-  background: #4b5563; /* Gray-600 */
+  background: #303134;
 }
 
 body.dark ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280; /* Gray-500 */
+  background: #4b4b4b;
 }
 
-/* 🎨 Custom color for date input icon */
+/* -------------------- Date Input Icon -------------------- */
 .custom-date::-webkit-calendar-picker-indicator {
   filter: invert(48%) sepia(70%) saturate(450%) hue-rotate(90deg) brightness(95%) contrast(90%);
   cursor: pointer;
 }
 
-/* For dark mode (optional) */
+/* Dark Mode Date Picker Icon */
 body.dark .custom-date::-webkit-calendar-picker-indicator {
-  filter: invert(80%) sepia(20%) saturate(300%) hue-rotate(120deg);
+  filter: invert(100%) brightness(200%) contrast(80%);
+}
+
+/* -------------------- Smooth Transition -------------------- */
+body, .compose-btn, nav, input, textarea {
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }

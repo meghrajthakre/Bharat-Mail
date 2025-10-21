@@ -9,7 +9,7 @@ const CalenderIcon = ({openCal , setOpenCal}) => {
                 className="relative group cursor-pointer p-2 flex items-center justify-center transition-transform hover:scale-110"
                 onClick={() => setOpenCal(!openCal)}
             >
-                <Icon icon="logos:google-calendar" width="28" height="28" />
+                <Icon icon="logos:google-calendar" width="25" height="28" />
 
 
                 {/* Tooltip */}
