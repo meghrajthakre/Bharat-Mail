@@ -4,6 +4,7 @@ import LeftSideBar from '../Components/LeftSideBar';
 import RightSideBar from './RightSideBar';
 import { useAppContext } from '../Context/AppContext';
 import SearchBox from './SearchBox';
+import ProfilePage from './Profile/ProfilePage';
 
 const TooltipIcon = ({ icon: Icon, text }) => (
   <div className="relative group flex items-center">
@@ -69,14 +70,7 @@ const Header = () => {
           </div>
           <TooltipIcon icon={Settings} text="Settings" />
 
-          <div className="relative group">
-            <img
-              src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAxL3JtNjA5LXNvbGlkaWNvbi13LTAwMi1wLnBuZw.png"
-              alt="Profile"
-              className=" sm:flex md:flex  w-5 h-5 md:w-10 md:h-10 rounded-full cursor-pointer"
-            />
-           
-          </div>
+          <ProfilePage/>
         </div>
       </nav>
 
