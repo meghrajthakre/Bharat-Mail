@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TasksIcons from "./TasksIcons";
 import Taskscard from "./Taskscard";
 
-const Tasks = () => {
+const Tasks = ({ isOpen, onToggle }) => {
     const [input, setInput] = useState('')
     const [title, setTitle] = useState('')
     const [opentask, setOpenTask] = useState(false)
@@ -41,9 +41,9 @@ const Tasks = () => {
             className={`relative ${opentask ? "border-l-4 border-blue-500" : "text-gray-600"
                 }`}
         >
-            <TasksIcons setOpenTask={setOpenTask} opentask={opentask} />
+             <TasksIcons setOpenTask={onToggle} opentask={isOpen} />
             {
-                opentask && (
+                isOpen && (
                     <div
                         className={`absolute top-0 right-14 w-72 sm:w-80 rounded-2xl shadow-xl border z-[101] p-5 
                         transition-all duration-500 ease-in-out transform `}
@@ -59,7 +59,7 @@ const Tasks = () => {
                             <p className="text-[11px] uppercase tracking-[3px] text-gray-400 mb-1">
                                 Tasks
                             </p>
-                            <h2 className="text-sm font-semibold tracking-[2px]">Notes</h2>
+                            <h2 className="text-sm font-semibold tracking-[2px]">Add Tasks</h2>
                         </div>
 
                         {/* Input Section */}
@@ -123,7 +123,7 @@ const Tasks = () => {
                                                 Add
                                             </button>
                                         </div>
-                                        <div className="mt-4 space-y-3 max-h-56 overflow-y-auto">
+                                        <div className="mt-4 space-y-3 max-h-36 overflow-y-auto">
                                             {localItem.length > 0 ? (
                                                 localItem.map((item,i) => (
                                                     <Taskscard

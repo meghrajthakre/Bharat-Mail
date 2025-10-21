@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import CalenderIcon from "./CalenderIcon";
 import ReminderCard from "./ReminderCard";
 
-const Calendar = () => {
-  const [openCal, setOpenCal] = useState(false);
+const Calendar = ({ isOpen, onToggle }) => {
   const [date, setDate] = useState(() => new Date().toISOString().split("T")[0]);
   const [textAreaVal, setTextAreaVal] = useState("");
   const [itemsLocal, setItemsLocal] = useState([]);
@@ -28,6 +27,8 @@ const Calendar = () => {
     setItemsLocal(updatedReminders);
     setTextAreaVal(""); // clear input
   };
+
+  // 🟢 Handle delete
   const handleDelete = (id) => {
     const filtered = itemsLocal.filter((item) => item.id !== id);
     setItemsLocal(filtered);
@@ -35,14 +36,13 @@ const Calendar = () => {
 
   return (
     <div
-      className={`relative ${openCal ? "border-l-4 border-blue-500" : "text-gray-600"
-        }`}
+      className={`relative ${isOpen ? "border-l-4 border-blue-500" : "text-gray-600"}`}
     >
-      {/* Calendar Icon */}
-      <CalenderIcon setOpenCal={setOpenCal} openCal={openCal} />
+      {/* 🗓️ Calendar Icon */}
+      <CalenderIcon setOpenCal={onToggle} openCal={isOpen} />
 
-      {/* Calendar Popup */}
-      {openCal && (
+      {/* 📅 Calendar Popup */}
+      {isOpen && (
         <div
           className="absolute top-0 right-14 w-72 sm:w-80 rounded-xl shadow-lg p-4 border z-[101] transition-all duration-300"
           style={{
@@ -57,9 +57,7 @@ const Calendar = () => {
 
           {/* Date Picker */}
           <div className="flex flex-col">
-            <h3 className="text-xs uppercase tracking-wider mb-1">
-              Pick a date
-            </h3>
+            <h3 className="text-xs uppercase tracking-wider mb-1">Pick a date</h3>
             <input
               type="date"
               value={date}
@@ -116,24 +114,19 @@ const Calendar = () => {
             </button>
 
             {/* Display all reminders */}
-            <div className="mt-4 space-y-3 max-h-56 overflow-y-auto ">
+            <div className="mt-4 space-y-3 max-h-56 overflow-y-auto">
               {itemsLocal.length > 0 ? (
-                itemsLocal.map((item,i) => (
-                  <>
-                    <ReminderCard
-                      key={i}
-                      handleDelete={handleDelete}
-                      id={item.id}
-                      date={item.date}
-                      text={item.name} />
-
-                  </>
-
+                itemsLocal.map((item) => (
+                  <ReminderCard
+                    key={item.id}
+                    handleDelete={handleDelete}
+                    id={item.id}
+                    date={item.date}
+                    text={item.name}
+                  />
                 ))
               ) : (
-                <p className="text-xs text-gray-400 italic">
-                  No reminders yet...
-                </p>
+                <p className="text-xs text-gray-400 italic">No reminders yet...</p>
               )}
             </div>
 
@@ -144,7 +137,7 @@ const Calendar = () => {
                 backgroundColor: "var(--btn-bg)",
                 color: "var(--btn-text)",
               }}
-              onClick={() => setOpenCal(false)}
+              onClick={onToggle}
               onMouseEnter={(e) =>
                 (e.currentTarget.style.backgroundColor = "red")
               }
