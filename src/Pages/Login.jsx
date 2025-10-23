@@ -1,7 +1,42 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../index.css";
+import axios from "axios";
 
 const Login = () => {
+  const [bmail, setBmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false);
+
+  const handleLoginForm = async (e) => {
+
+    e.preventDefault()
+    const payload = {
+      email: bmail,
+      password: password
+    }
+    setLoading(true)
+
+
+    try {
+      const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload);
+      localStorage.setItem("token", res.data.access_token);
+      alert("Login Success 🎉");
+    }
+    catch (err) {
+      const message = err.response?.data?.message || err.message || "Login Failed";
+      alert(`Login Failed: ${message}`);
+    }
+    finally {
+      setLoading(false);
+      setBmail('');
+      setPassword('');
+    }
+    setBmail('');
+    setPassword('')
+
+  }
+
+
   useEffect(() => {
     document.body.classList.add("dark");
   }, []);
@@ -26,20 +61,24 @@ const Login = () => {
         </p>
 
         {/* Form */}
-        <form className="space-y-4 sm:space-y-6">
+        <form className="space-y-4 sm:space-y-6" onSubmit={handleLoginForm} >
           <div className="relative">
             <input
+              value={bmail}
+              onChange={(e) => setBmail(e.target.value)}
               type="email"
               required
               className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-4 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
             />
             <label className="absolute left-3 top-2 text-sm sm:text-sm text-[var(--secondary-text)] transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-400">
-              Email or phone
+              Bmail or phone
             </label>
           </div>
 
           <div className="relative">
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               required
               className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-4 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
@@ -52,10 +91,11 @@ const Login = () => {
           {/* Login Button */}
           <div className="pt-4 sm:pt-6">
             <button
+            disabled={loading}
               type="submit"
               className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2 sm:py-3 rounded-md transition-colors text-sm sm:text-base"
             >
-              Login
+              {loading ? "Login..." : "Login"}
             </button>
           </div>
 
