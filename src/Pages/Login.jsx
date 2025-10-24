@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import "../index.css";
 import axios from "axios";
+import { useLogin } from "../Context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [bmail, setBmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false);
+  const { logInUser, } = useLogin()
+
 
   const handleLoginForm = async (e) => {
-
     e.preventDefault()
     const payload = {
       email: bmail,
@@ -19,12 +22,12 @@ const Login = () => {
 
     try {
       const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload);
-      localStorage.setItem("token", res.data.access_token);
-      alert("Login Success 🎉");
+      logInUser(res.data.access_token);
     }
     catch (err) {
       const message = err.response?.data?.message || err.message || "Login Failed";
-      alert(`Login Failed: ${message}`);
+      console.log(message);
+      
     }
     finally {
       setLoading(false);
@@ -91,7 +94,7 @@ const Login = () => {
           {/* Login Button */}
           <div className="pt-4 sm:pt-6">
             <button
-            disabled={loading}
+              disabled={loading}
               type="submit"
               className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2 sm:py-3 rounded-md transition-colors text-sm sm:text-base"
             >
