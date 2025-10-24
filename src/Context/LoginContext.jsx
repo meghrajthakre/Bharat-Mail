@@ -36,6 +36,7 @@ export const LoginProvider = ({ children }) => {
         try {
             setIsLoggedIn(true);
             localStorage.setItem('token', tokenValue);
+            setToken(tokenValue);
 
 
             // ✅ Correct header format
@@ -44,7 +45,7 @@ export const LoginProvider = ({ children }) => {
                     Authorization: `Bearer ${tokenValue}`,
                 },
             });
-            setToken(tokenValue);
+
             setUserData(res.data);
             navigate("/home");
 

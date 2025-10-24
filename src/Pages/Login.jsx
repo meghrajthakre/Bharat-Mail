@@ -71,7 +71,7 @@ const Login = () => {
               onChange={(e) => setBmail(e.target.value)}
               type="email"
               required
-              className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-4 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
+              className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-7 md:pt-7 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
             />
             <label className="absolute left-3 top-2 text-sm sm:text-sm text-[var(--secondary-text)] transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-400">
               Bmail or phone
@@ -84,7 +84,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               required
-              className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-4 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
+              className="peer w-full bg-[var(--search-bg)] border border-[#2f2f2f] rounded-md px-3 pt-7 md:pt-7 pb-2 sm:pt-5 sm:pb-2 text-[var(--text-color)] focus:border-blue-500 outline-none text-sm sm:text-base"
             />
             <label className="absolute left-3 top-2 text-sm sm:text-sm text-[var(--secondary-text)] transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-400">
               Password
