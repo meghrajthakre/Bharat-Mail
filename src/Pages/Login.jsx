@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "../index.css";
 import axios from "axios";
 import { useLogin } from "../Context/LoginContext";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [bmail, setBmail] = useState('')
@@ -99,23 +100,24 @@ const Login = () => {
               className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2 sm:py-3 rounded-md transition-colors text-sm sm:text-base"
             >
               {loading ? "Login..." : "Login"}
+               <Toaster position="top-right" reverseOrder={false} />
             </button>
           </div>
 
           {/* Links */}
           <div className="flex flex-col sm:flex-row justify-between items-center pt-2 gap-2 sm:gap-0">
-            <a
+            <NavLink
               href="#"
               className="text-blue-400 hover:underline text-sm sm:text-sm transition"
             >
               Forgot email?
-            </a>
-            <a
-              href="#"
+            </NavLink>
+            <NavLink
+              to="/signup"
               className="text-blue-400 hover:underline text-sm sm:text-sm transition"
             >
               Create account
-            </a>
+            </NavLink>
           </div>
         </form>
       </div>

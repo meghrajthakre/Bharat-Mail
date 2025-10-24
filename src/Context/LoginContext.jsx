@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 // 1️⃣ Context banao
@@ -47,10 +48,17 @@ export const LoginProvider = ({ children }) => {
             });
 
             setUserData(res.data);
-            navigate("/home");
+            toast.success("Login Successful 🎉")
+
+            // Navigate after toast duration
+            setTimeout(() => {
+                navigate("/home");
+            }, 800);
 
         } catch (err) {
             const message = err.response?.data?.message || err.message || "Login Failed";
+            toast.error(`Login Failed: ${message}`);
+            toast.error(`Login Failed: ${message}`, { duration: 2000 });
             console.log(message);
         }
 

@@ -4,9 +4,11 @@ import MiddleMain from './../MiddleMain';
 import ComposePage from './../Components/ComposePage';
 import ComposeButton from './../Components/ComposeButton';
 import { useAppContext } from '../Context/AppContext';
+import toast from 'react-hot-toast';
 
 const home = () => {
     const { openCompose } = useAppContext();
+
 
     return (
         <div className="w-screen h-screen relative">

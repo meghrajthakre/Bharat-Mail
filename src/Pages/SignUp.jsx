@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../index.css";
+import { NavLink } from 'react-router-dom';
 
 const SignUp = () => {
     const [inupt , setInput] =useState('');
@@ -102,12 +103,13 @@ const SignUp = () => {
 
           {/* Links */}
           <div className="flex flex-col sm:flex-row justify-between items-center pt-2 gap-2 sm:gap-0">
-            <a
-              href="#"
-              className="text-blue-400 hover:underline text-sm sm:text-sm transition text-center sm:text-left"
+             <NavLink
+              to="/login"
+              className="text-blue-400 hover:underline text-sm sm:text-sm transition"
             >
-              Already have an account? Sign in
-            </a>
+                            Already have an account? Sign in
+
+            </NavLink>
           </div>
         </form>
       </div>
