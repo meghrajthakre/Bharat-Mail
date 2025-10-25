@@ -48,7 +48,6 @@ export const LoginProvider = ({ children }) => {
             });
 
             setUserData(res.data);
-            toast.success("Login Successful 🎉")
 
             // Navigate after toast duration
             setTimeout(() => {
@@ -68,14 +67,14 @@ export const LoginProvider = ({ children }) => {
         setToken(null);
         setUserData(null);
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("/");
     }
 
-
+   
 
 
     return (
-        <LoginContext.Provider value={{ logInUser, logOutUser, setUserData, userData, isLoggedIn }}>
+        <LoginContext.Provider value={{  logInUser, logOutUser, setUserData, userData, isLoggedIn }}>
             {children}
         </LoginContext.Provider>
     );

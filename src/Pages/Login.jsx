@@ -3,7 +3,7 @@ import "../index.css";
 import axios from "axios";
 import { useLogin } from "../Context/LoginContext";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [bmail, setBmail] = useState('')
@@ -24,10 +24,11 @@ const Login = () => {
     try {
       const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload);
       logInUser(res.data.access_token);
+      toast.success("Login Successful 🎉")
     }
     catch (err) {
       const message = err.response?.data?.message || err.message || "Login Failed";
-      console.log(message);
+      toast.error(`Login Failed: ${message}`);
       
     }
     finally {
