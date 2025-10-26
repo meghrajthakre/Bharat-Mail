@@ -61,7 +61,10 @@ const SignUp = () => {
     <>
       <Toaster position="top-right" reverseOrder={false} />
       <div className="min-h-screen flex items-center justify-center bg-[var(--bg-color)] text-[var(--text-color)] px-4">
-        <div className="w-full max-w-md sm:max-w-lg md:max-w-md lg:max-w-md bg-[var(--header-bg)] rounded-2xl shadow-xl p-4 sm:p-8 border border-[#2a2a2a]">
+
+        <div className="relative w-full max-w-md sm:max-w-lg md:max-w-md lg:max-w-md bg-[var(--header-bg)] rounded-2xl shadow-xl p-4 sm:p-8 border border-[#2a2a2a]">
+         
+
           {/* Logo & Title */}
           <div className="flex items-center">
             <img
@@ -72,6 +75,14 @@ const SignUp = () => {
             <h1 className="text-lg sm:text-xl font-medium text-blue-500">
               Bharat Mail
             </h1>
+             <div className="absolute right-10">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex cursor-pointer items-center text-sm sm:text-sm text-blue-400 hover:text-blue-500 transition"
+            >
+              &#8592; Back
+            </button>
+          </div>
           </div>
 
           {/* Headings */}

@@ -10,6 +10,34 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false);
   const { logInUser, } = useLogin()
+  const navigate = useNavigate();
+
+  const handleDemoLogin = async () => {
+    const demoCreds = {
+      email: "john@mail.com",  // ✅ working demo account
+      password: "changeme"
+    };
+
+    try {
+      const res = await axios.post(
+        "https://api.escuelajs.co/api/v1/auth/login",
+        demoCreds
+      );
+
+      const token = res.data.access_token;
+      if (!token) throw new Error("Token not received");
+
+      localStorage.setItem("token", token);
+      toast.success("Welcome Demo User 👋");
+
+      // call context function to load user data
+      logInUser(token);
+
+    } catch (err) {
+      console.error(err);
+      toast.error("Demo login failed, please try again later");
+    }
+  };
 
 
   const handleLoginForm = async (e) => {
@@ -24,12 +52,11 @@ const Login = () => {
     try {
       const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload);
       logInUser(res.data.access_token);
-      toast.success("Login Successful 🎉")
     }
     catch (err) {
       const message = err.response?.data?.message || err.message || "Login Failed";
       toast.error(`Login Failed: ${message}`);
-      
+
     }
     finally {
       setLoading(false);
@@ -101,10 +128,13 @@ const Login = () => {
               className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium py-2 sm:py-3 rounded-md transition-colors text-sm sm:text-base"
             >
               {loading ? "Login..." : "Login"}
-               <Toaster position="top-right" reverseOrder={false} />
+              <Toaster
+                position="top-center"
+                reverseOrder={false}
+              />
             </button>
           </div>
-
+         
           {/* Links */}
           <div className="flex flex-col sm:flex-row justify-between items-center pt-2 gap-2 sm:gap-0">
             <NavLink
@@ -121,6 +151,12 @@ const Login = () => {
             </NavLink>
           </div>
         </form>
+         <button
+            onClick={handleDemoLogin}
+            className="w-full mt-8 cursor-pointer bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
+          >
+            Try Demo Account
+          </button>
       </div>
 
       {/* Footer */}

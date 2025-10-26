@@ -5,6 +5,7 @@ import RightSideBar from './RightSideBar';
 import { useAppContext } from '../Context/AppContext';
 import SearchBox from './SearchBox';
 import ProfilePage from './Profile/ProfilePage';
+import Setting from './Setting';
 
 const TooltipIcon = ({ icon: Icon, text }) => (
   <div className="relative group flex items-center">
@@ -53,7 +54,7 @@ const Header = () => {
         </div>
 
         {/* Middle Section: Search Box */}
-      <SearchBox/>
+        <SearchBox />
 
         {/* Right Section */}
         <div className='flex items-center gap-2 sm:gap-4'>
@@ -68,9 +69,10 @@ const Header = () => {
           <div className="hidden lg:block">
             <TooltipIcon icon={HelpCircle} text="Help" />
           </div>
-          <TooltipIcon icon={Settings} text="Settings" />
-
-          <ProfilePage/>
+          <div>
+          <Setting/>
+          </div>
+          <ProfilePage />
         </div>
       </nav>
 
