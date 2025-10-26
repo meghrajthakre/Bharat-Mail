@@ -10,9 +10,10 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false);
   const { logInUser, } = useLogin()
-  const navigate = useNavigate();
+  
 
   const handleDemoLogin = async () => {
+    setLoading(true)
     const demoCreds = {
       email: "john@mail.com",  // ✅ working demo account
       password: "changeme"
@@ -32,7 +33,7 @@ const Login = () => {
 
       // call context function to load user data
       logInUser(token);
-
+      setLoading(false)
     } catch (err) {
       console.error(err);
       toast.error("Demo login failed, please try again later");
@@ -155,7 +156,7 @@ const Login = () => {
             onClick={handleDemoLogin}
             className="w-full mt-8 cursor-pointer bg-green-600 hover:bg-green-700 text-white py-2 rounded-md"
           >
-            Try Demo Account
+            {loading ? "Login Into Demo" : " Try Demo Account"}
           </button>
       </div>
 
