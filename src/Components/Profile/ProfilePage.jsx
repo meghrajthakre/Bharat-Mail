@@ -15,7 +15,7 @@ const ProfilePage = () => {
         onClick={() => setOpen(!open)}
         src={avatar}
         alt={userData?.name || "User"}
-        className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full object-cover 
+        className="w-7 h-7 sm:w-9 sm:h-9 md:w-8 md:h-8 rounded-full object-cover 
                    cursor-pointer border-2 border-gray-300 hover:border-blue-400 
                    transition-all duration-300 transform hover:scale-105 shadow-sm"
       />

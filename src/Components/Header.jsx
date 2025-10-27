@@ -9,7 +9,7 @@ import Setting from './Setting';
 
 const TooltipIcon = ({ icon: Icon, text }) => (
   <div className="relative group flex items-center">
-    <Icon className="w-5 h-5 md:w-6 md:h-6 text-gray-600 cursor-pointer hover:text-green-600 transition-colors" />
+    <Icon className="w-4 h-4 md:w-6 md:h-6 text-gray-600 cursor-pointer hover:text-green-600 transition-colors" />
     <span className="absolute z-50 top-full mt-2 left-1/2 -translate-x-1/2
                     bg-gray-800 text-white text-xs rounded px-2 py-1 shadow-md
                     opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <>
       <nav
-        className="z-50 flex items-center justify-between px-3 bg-red-500 py-3 md:py-2 sm:px-3 md:px-5 transition-colors duration-300"
+        className="z-50 flex items-center justify-between px-3  py-3 md:py-2 sm:px-3 md:px-6 transition-colors duration-300"
         style={{ backgroundColor: 'var(--header-bg)', color: 'var(--secondary-text)' }}
       >
         {/* Left Section: Menu + Logo */}
